@@ -40,7 +40,7 @@ export default {
     }),
     ...mapGetters({ simData: 'getSimData' }),
     fields: function () {
-      if (this.simulationOptions.view === 'expanded') {
+      if (this.simulationOptions.viewOption === 'expanded') {
         return [
           'day',
           'hermes',

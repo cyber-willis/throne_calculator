@@ -15,7 +15,7 @@ export const state = () => ({
   futurePrice: null,
   currentIndex: null,
   currentThrone: 0,
-  estimatedAPY: 700,
+  estimatedAPY: 150,
   totalThroneInvested: 0,
   nodeInfo: [
     { id: 0, name: 'Hermes', tCost: 2.0, tYield: 0.65 },
