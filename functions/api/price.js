@@ -22,7 +22,7 @@ export async function onRequestGet(context) {
     return new Response('error', { status: res.status })
   }
 
-  const price = parseFloat(data.price_usd)
+  const price = parseFloat(data.price_usd).toFixed(2)
   const info = JSON.stringify({ price: price })
 
   let resp = new Response(info, null, 2)
