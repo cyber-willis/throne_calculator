@@ -11,7 +11,10 @@
           </p>
         </b-col>
         <b-col>
-          <p class="ml-3 lead">Created with love by Willis</p>
+          <p class="ml-3 lead">
+            Created with love by Willis.
+            <span class="font-italic">Version {{ version }}</span>
+          </p>
           <b-nav>
             <b-nav-item
               ><a href="https://github.com/cyber-willis/throne_calculator"
@@ -37,8 +40,15 @@
 
 <script>
 import { BIconDiscord, BIconTwitter, BIconGithub } from 'bootstrap-vue'
+import { version } from '~/package'
 export default {
   components: { BIconDiscord, BIconTwitter, BIconGithub },
+
+  data: function () {
+    return {
+      version: version,
+    }
+  },
 }
 </script>
 
