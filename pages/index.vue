@@ -2,7 +2,7 @@
   <div>
     <b-row>
       <b-col sm="12" class="mb-5">
-        <b-card title="Input" bg-variant="dark" text-variant="white">
+        <b-card title="Input" bg-variant="light" text-variant="dark">
           <Inputs />
         </b-card>
       </b-col>
