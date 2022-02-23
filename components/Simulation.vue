@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>
+    <div :class="themeClass()">
       <simulation-input />
     </div>
     <b-table
@@ -9,6 +9,7 @@
       :fields="fields"
       :currentPage="currentPage"
       :per-page="perPage"
+      :dark="darkMode"
       small
       responsive
     ></b-table>
@@ -17,6 +18,12 @@
       :total-rows="totalRows"
       :per-page="perPage"
       aria-controls="simulation-table"
+      :ellipsis-class="paginationButtonClass"
+      :first-class="paginationButtonClass"
+      :last-class="paginationButtonClass"
+      :next-class="paginationButtonClass"
+      :page-class="paginationButtonClass"
+      :prev-class="paginationButtonClass"
     ></b-pagination>
   </div>
 </template>
@@ -36,9 +43,12 @@ export default {
 
   computed: {
     ...mapState({
+      theme: (state) => state.theme,
       simulationOptions: (state) => state.simulationOptions,
     }),
-    ...mapGetters({ simData: 'getSimData' }),
+
+    ...mapGetters({ simData: 'getSimData', themeClass: 'getThemeClass' }),
+
     fields: function () {
       if (this.simulationOptions.viewOption === 'expanded') {
         return [
@@ -87,6 +97,14 @@ export default {
           class: 'sim-currency-col',
         },
       ]
+    },
+
+    darkMode: function () {
+      return this.theme === 'dark'
+    },
+
+    paginationButtonClass: function () {
+      return this.theme === 'dark' ? 'theme-dark-pagination' : ''
     },
   },
 

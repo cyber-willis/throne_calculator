@@ -48,3 +48,28 @@ input.tool-input {
 .tool-card h6.card-title {
   margin-bottom: 1.8rem;
 }
+
+.theme-dark-variant {
+  background-color: #212529 !important;
+  color: #f8f9fa !important;
+  border-color: #1a1d20 !important;
+}
+
+.theme-dark {
+  background-color: #343a40 !important;
+  color: #f8f9fa !important;
+  border-color: #292e33 !important;
+}
+
+.theme-dark-pagination button,
+.theme-dark-pagination span.page-link {
+  background-color: #343a40 !important;
+  color: #f8f9fa !important;
+  border-color: #292e33 !important;
+}
+
+.theme-dark-pagination.active button {
+  background-color: #007bff !important;
+  color: #f8f9fa !important;
+  border-color: #007bff !important;
+}
