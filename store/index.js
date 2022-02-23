@@ -11,6 +11,7 @@ import {
 } from '~/lib/contract'
 
 export const state = () => ({
+  theme: 'light',
   currentPrice: null,
   futurePrice: null,
   currentIndex: null,
@@ -46,6 +47,15 @@ export const state = () => ({
 })
 
 export const getters = {
+  getThemeClass:
+    (state) =>
+    (variant = false) => {
+      if (variant) {
+        return state.theme === 'light' ? null : 'theme-dark-variant'
+      }
+      return state.theme === 'light' ? null : 'theme-dark'
+    },
+
   getNodeByID: (state) => (id) => {
     return state.nodeInfo.find((node) => node.id === id)
   },
@@ -150,6 +160,9 @@ export const actions = {
 }
 
 export const mutations = {
+  setTheme(state, theme) {
+    state.theme = theme
+  },
   setCurrentPrice(state, price) {
     state.currentPrice = parseFloat(price)
   },

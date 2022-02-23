@@ -1,5 +1,5 @@
 <template>
-  <b-table-simple small responsive class="info-table">
+  <b-table-simple small responsive class="info-table" :dark="darkMode">
     <b-thead>
       <b-tr>
         <b-th></b-th>
@@ -59,15 +59,21 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 import { formatNumber, formatCurrency } from '~/lib/utils'
 
 export default {
   computed: {
+    ...mapState({
+      theme: (state) => state.theme,
+    }),
     ...mapGetters({
       nodesEarningsData: 'getNodesEarningsData',
       inputValid: 'inputLoaded',
     }),
+    darkMode: function () {
+      return this.theme === 'dark'
+    },
   },
 
   methods: {

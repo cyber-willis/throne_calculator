@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-table-simple small responsive class="info-table">
+    <b-table-simple small responsive class="info-table" :dark="darkMode">
       <b-thead>
         <b-tr>
           <b-th></b-th>
@@ -84,6 +84,7 @@ export default {
   },
   computed: {
     ...mapState({
+      theme: (state) => state.theme,
       nodesInfo: (state) => state.nodeInfo,
       selectedNodes: (state) => state.selectedNodes,
     }),
@@ -91,6 +92,10 @@ export default {
       nodesInfoData: 'getNodesInfoData',
       inputValid: 'inputLoaded',
     }),
+
+    darkMode: function () {
+      return this.theme === 'dark'
+    },
   },
 
   methods: {

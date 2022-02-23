@@ -1,6 +1,11 @@
 <template>
   <div class="nav-container">
-    <b-navbar toggleable="lg" type="dark" variant="dark">
+    <b-navbar
+      toggleable="lg"
+      type="dark"
+      variant="dark"
+      :class="themeClass(true)"
+    >
       <b-navbar-brand href="#"
         ><MidasLogo />Throne Calculator
         <span class="subtitle">by Willis</span></b-navbar-brand
@@ -20,6 +25,7 @@
 
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
+        <theme-switcher class="mr-2" />
         <b-nav-item @click="onRefreshClick"
           ><BIconArrowClockwise /> Refresh Data</b-nav-item
         >
@@ -30,9 +36,15 @@
 
 <script>
 import { BIconArrowClockwise, BIconNewspaper } from 'bootstrap-vue'
+import ThemeSwitcher from './ThemeSwitcher.vue'
+import { mapGetters } from 'vuex'
 
 export default {
-  components: { BIconArrowClockwise, BIconNewspaper },
+  components: { BIconArrowClockwise, BIconNewspaper, ThemeSwitcher },
+
+  computed: {
+    ...mapGetters({ themeClass: 'getThemeClass' }),
+  },
 
   methods: {
     onRefreshClick: async function () {
@@ -44,7 +56,7 @@ export default {
 
 <style scoped>
 .nav-container {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2.5rem;
 }
 .subtitle {
   font-weight: lighter;

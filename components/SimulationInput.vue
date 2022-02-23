@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="sim-input-wrapper bg-light border pt-3 pb-2 px-3 mt-2 mb-2 rounded-sm"
-  >
+  <div class="sim-input-wrapper pt-3 pb-2 px-3 mt-2 mb-2 rounded-sm">
     <div class="sim-input-group">
       <label for="input-price-option">Price:</label>
       <b-form-radio-group
